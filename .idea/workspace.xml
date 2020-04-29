@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="491074d5-c178-42e9-902e-8253b9504ce6" name="Default Changelist" comment="" />
+    <list default="true" id="491074d5-c178-42e9-902e-8253b9504ce6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Happy Fish/app/src/main/res/drawable-v24/gradient.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Happy Fish/app/src/main/res/drawable-v24/logopeixe.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Happy Fish/app/src/main/res/drawable-v24/pisci.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Happy Fish/app/src/main/java/com/example/happyfish/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Happy Fish/app/src/main/java/com/example/happyfish/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Happy Fish/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Happy Fish/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +51,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
