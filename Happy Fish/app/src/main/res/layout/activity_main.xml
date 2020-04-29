@@ -51,7 +51,6 @@
         android:layout_marginTop="30dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Digite o nome de usuário..."
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
