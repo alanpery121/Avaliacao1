@@ -11,7 +11,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
+        android:background="#FFFFFF"
         android:text="Cadastrar Pedido"
+        android:textColor="#0C0C0C"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,11 +21,14 @@
 
     <ListView
         android:id="@+id/compListaPedidos"
+        style="@android:style/Widget.DeviceDefault.Light.ListView"
         android:layout_width="212dp"
         android:layout_height="182dp"
-        android:layout_marginTop="112dp"
+        android:layout_marginTop="84dp"
+        android:animateLayoutChanges="true"
+        android:background="#F4F2F2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.169"
+        app:layout_constraintHorizontal_bias="0.17"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -31,11 +36,12 @@
         android:id="@+id/compBtPesquisar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="180dp"
         android:layout_marginEnd="24dp"
         android:text="Pesquisar"
+        app:backgroundTint="#2196F3"
+        app:layout_constraintBottom_toTopOf="@+id/compEtTotal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.69"
+        app:layout_constraintHorizontal_bias="0.794"
         app:layout_constraintStart_toEndOf="@+id/compListaPedidos"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -57,8 +63,23 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
         android:text="Prosseguir"
+        app:backgroundTint="#2196F3"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/compEtTotal" />
+        app:layout_constraintTop_toBottomOf="@+id/compEtTotal"
+        app:layout_constraintVertical_bias="0.256" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="161dp"
+        android:layout_height="43dp"
+        android:text="Os Ítens pesquisados Aparecerão Abaixo"
+        app:layout_constraintBottom_toTopOf="@+id/compListaPedidos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.136"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.571" />
 </androidx.constraintlayout.widget.ConstraintLayout>
