@@ -2,34 +2,47 @@ package com.example.happyfish;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class CadastrarICMS extends AppCompatActivity {
 
-    private Spinner spinnerEstado;
-    private String[] listaEstados = {"Acre", "Alagoas", "Amapá", "Amazonas","Bahia",
-            "Ceará", "Espírito Santo", "Goiás", "Maranhão", "Mato Grosso", "Mato Grosso do Sul",
-            "Minas Gerais", "Pará", "Paraíba", "Paraná", "Pernambuco", "Piauí", "Rio de Janeiro",
-            "Rio Grande do Norte", "Rio Grande do Sul", "Rondônia", "Roraima", "Santa Catarina",
-            "São Paulo", "Sergipe", "Tocantins", "Distrito Federal"};
-
+    private EditText etICMS;
+    private EditText etEstado;
+    private Button btSalvarICMS;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastrar_i_c_m_s);
 
-        spinnerEstado = findViewById(R.id.spinnerEstados);
-        ArrayAdapter<String> adaptador = new ArrayAdapter<String>(
-                getApplicationContext(),
-                android.R.layout.simple_spinner_item,
-                android.R.id.text1,
-                listaEstados
-        );
+        etICMS = findViewById(R.id.etICMS);
+        etEstado = findViewById(R.id.etEstado);
+        btSalvarICMS = findViewById(R.id.btSalvarICMS);
 
-        spinnerEstado.setAdapter(adaptador);
+        btSalvarICMS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(etICMS.getText().toString().isEmpty() || etEstado.getText().toString().isEmpty()){
+                    Toast.makeText(CadastrarICMS.this, "Preencha todos os campos", Toast.LENGTH_SHORT).show();
+                }else{
+                    Intent intent1 = new Intent(CadastrarICMS.this, CadastroPedido.class);
+                    intent1.putExtra("icms", etICMS.getText().toString());
+                    intent1.putExtra("estado", etEstado.getText().toString());
+
+                    startActivity(intent1);
+                }
+            }
+        });
+
+
+
 
 
 
