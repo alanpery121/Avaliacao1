@@ -10,5 +10,11 @@ public class CadastroPedido extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_pedido);
+
+        Bundle valores1 = getIntent().getExtras();
+
+        if(valores1 != null){
+
+        }
     }
 }

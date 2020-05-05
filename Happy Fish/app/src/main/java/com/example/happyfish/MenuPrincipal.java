@@ -31,7 +31,7 @@ public class MenuPrincipal extends AppCompatActivity {
         Bundle valores = getIntent().getExtras();
 
         if(valores != null){
-            tvUsuarioMenu.setText(valores.getString("Bem vindo "+"nome"));
+            tvUsuarioMenu.setText(valores.getString("nome"));
         }
 
         btVoltar.setOnClickListener(new View.OnClickListener() {
