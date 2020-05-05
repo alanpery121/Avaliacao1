@@ -32,11 +32,7 @@ public class CadastrarICMS extends AppCompatActivity {
                 if(etICMS.getText().toString().isEmpty() || etEstado.getText().toString().isEmpty()){
                     Toast.makeText(CadastrarICMS.this, "Preencha todos os campos", Toast.LENGTH_SHORT).show();
                 }else{
-                    Intent intent1 = new Intent(CadastrarICMS.this, CadastroPedido.class);
-                    intent1.putExtra("icms", etICMS.getText().toString());
-                    intent1.putExtra("estado", etEstado.getText().toString());
-
-                    startActivity(intent1);
+                    Toast.makeText(CadastrarICMS.this, "Salvo com sucesso"+"\n"+"O estado "+etEstado.getText().toString()+" tem uma aliquota de  "+etICMS.getText().toString()+"%", Toast.LENGTH_SHORT).show();
                 }
             }
         });
