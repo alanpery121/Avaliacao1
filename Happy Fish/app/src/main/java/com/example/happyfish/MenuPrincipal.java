@@ -18,8 +18,8 @@ public class MenuPrincipal extends AppCompatActivity {
     private Button btCadastrarVenda;
     private Button btVoltar;
     private Button btSobre;
-
-
+    private String nomeCliente;
+    private String nomeUsuario;
 
 
     @Override
@@ -28,7 +28,7 @@ public class MenuPrincipal extends AppCompatActivity {
         setContentView(R.layout.activity_menu_principal);
 
         ActionBar actionBar = getSupportActionBar();
-        if(actionBar != null){
+        if (actionBar != null) {
             actionBar.setTitle("Menu Principal");
         }
 
@@ -41,15 +41,22 @@ public class MenuPrincipal extends AppCompatActivity {
 
         final Bundle valores = getIntent().getExtras();
 
-        if(valores != null){
-            tvUsuarioMenu.setText(valores.getString("nome"));
+        if (valores != null) {
+            if (valores.getString("nome") != null){
+                nomeUsuario = valores.getString("nome");
+                tvUsuarioMenu.setText(nomeUsuario);
+            }
+            // Verificação se existe dados do Nome do usuario , pq essa activity está recebendo mais
+            // de dois putExtra ou seja todos precisam ter sua nulabilidade verificada */
+            if (valores.getString("NomeCliente") != null) {
+                nomeCliente = valores.getString("NomeCliente");
+            }
         }
 
         btVoltar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent voltar;
-                voltar = new Intent(MenuPrincipal.this, MainActivity.class);
+                Intent voltar = new Intent(MenuPrincipal.this, MainActivity.class);
                 startActivity(voltar);
                 finish();
             }
@@ -58,8 +65,7 @@ public class MenuPrincipal extends AppCompatActivity {
         btCadastrarICMS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent cadastrarICMS;
-                cadastrarICMS = new Intent(MenuPrincipal.this, CadastrarICMS.class);
+                Intent cadastrarICMS = new Intent(MenuPrincipal.this, CadastrarICMS.class);
                 startActivity(cadastrarICMS);
             }
         });
@@ -67,17 +73,22 @@ public class MenuPrincipal extends AppCompatActivity {
         btCadastrarPedido.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent cadastrarPedido;
-                cadastrarPedido = new Intent(MenuPrincipal.this, CadastroPedido.class);
+                Intent cadastrarPedido = new Intent(MenuPrincipal.this, CadastroPedido.class);
+                if (nomeUsuario != null){
+                    cadastrarPedido.putExtra("nome", nomeUsuario);
+                }
                 startActivity(cadastrarPedido);
+                finish();
             }
         });
 
         btCadastrarVenda.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent cadastrarVenda;
-                cadastrarVenda = new Intent(MenuPrincipal.this, CadastrarVenda.class);
+                Intent cadastrarVenda = new Intent(MenuPrincipal.this, CadastrarVenda.class);
+                if (nomeCliente != null) {
+                    cadastrarVenda.putExtra("NomeCliente", nomeCliente);
+                }
                 startActivity(cadastrarVenda);
             }
         });
@@ -86,6 +97,7 @@ public class MenuPrincipal extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent sobre = new Intent(MenuPrincipal.this, Sobre.class);
+                sobre.putExtra("valor", valores);
                 startActivity(sobre);
 
             }

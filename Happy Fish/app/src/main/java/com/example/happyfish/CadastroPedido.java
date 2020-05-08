@@ -28,6 +28,9 @@ public class CadastroPedido extends AppCompatActivity {
             "TAMBAQUI", "TILÁPIA", "CARPA", "PEIXE-CACHORRO", "BAGRE AMARELO", "PIAU",
             "CASCUDO", "DOURADO", "CURIMATÃ", "TUVIRA"};
     String peixeClicado;
+    // Nome do Cliente */
+    String nomeCliente;
+    String nomeUsuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +38,7 @@ public class CadastroPedido extends AppCompatActivity {
         setContentView(R.layout.activity_cadastro_pedido);
 
         ActionBar actionBar = getSupportActionBar();
-        if(actionBar != null){
+        if (actionBar != null) {
             actionBar.setTitle("Cadastrar Pedido");
         }
 
@@ -45,8 +48,14 @@ public class CadastroPedido extends AppCompatActivity {
         etKgPeixe = findViewById(R.id.etKgPeixe);
         btSalvarPedido = findViewById(R.id.btSalvarPedido);
 
+        final Bundle bundle = getIntent().getExtras();
+        if (bundle != null){
+            if (bundle.getString("nome") != null) {
+                nomeUsuario = bundle.getString("nome");
+            }
+        }
 
-        ArrayAdapter<String> adaptador = new ArrayAdapter<String>(
+        ArrayAdapter<String> adaptador = new ArrayAdapter<>(
                 getApplicationContext(),
                 android.R.layout.simple_list_item_1,
                 android.R.id.text1,
@@ -60,13 +69,11 @@ public class CadastroPedido extends AppCompatActivity {
         lvPeixe.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getApplicationContext(), "Item selecionado: "+listaPeixe[position], Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Item selecionado: " + listaPeixe[position], Toast.LENGTH_SHORT).show();
 
                 peixeClicado = lvPeixe.getItemAtPosition(position).toString();
             }
         });
-
-
 
 
         btSalvarPedido.setOnClickListener(new View.OnClickListener() {
@@ -87,8 +94,10 @@ public class CadastroPedido extends AppCompatActivity {
                         //define um botão como positivo
                         dialogICMS.setPositiveButton("Salvar", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface arg0, int arg1) {
-                                Toast.makeText(CadastroPedido.this, "Salvo com sucesso "+"\n" + "Nome do cliente " + etNomeCliente.getText().toString()
+                                Toast.makeText(CadastroPedido.this, "Salvo com sucesso " + "\n" + "Nome do cliente " + etNomeCliente.getText().toString()
                                         + "\n" + etKgPeixe.getText().toString() + "kg" + "\nde peixe " + peixeClicado, Toast.LENGTH_SHORT).show();
+                                // Salvando o nome do cliente */
+                                nomeCliente = etNomeCliente.getText().toString();
                             }
                         });
                         //define um botão como negativo.
@@ -113,6 +122,25 @@ public class CadastroPedido extends AppCompatActivity {
             }
         });
 
+
+    }
+
+    // Metodo executado quando o usuário preciona o botão de voltar */
+    @Override
+    public void onBackPressed() {
+            Intent intent = new Intent(this, MenuPrincipal.class);
+            if (nomeCliente != null){
+                // putExtra do nome do cliente */
+                intent.putExtra("NomeCliente", nomeCliente);
+            }
+            // putExtra do nome de usuario */
+            if (nomeUsuario != null){
+                intent.putExtra("nome", nomeUsuario);
+            }
+            // Inicia a activity */
+            startActivity(intent);
+            // Destroi a activity */
+            finish();
 
     }
 }

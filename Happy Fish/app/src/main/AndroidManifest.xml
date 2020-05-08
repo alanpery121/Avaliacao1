@@ -10,22 +10,11 @@
         android:screenOrientation="userPortrait"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-<<<<<<< HEAD
-<<<<<<< HEAD
-        <activity android:name=".CadastroPedido"></activity>
-=======
         <activity android:name=".Sobre"></activity>
         <activity android:name=".CadastroPedido" />
->>>>>>> ALAN
         <activity android:name=".CadastrarVenda" />
         <activity android:name=".CadastrarICMS" />
         <activity android:name=".MenuPrincipal" />
-=======
-<<<<<<< Updated upstream
-        <activity android:name=".TelaSelecionarPedido"></activity>
-=======
->>>>>>> Stashed changes
->>>>>>> victor
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,7 +22,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CadastrarPedido" />
     </application>
 
 </manifest>

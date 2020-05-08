@@ -15,35 +15,13 @@
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintHorizontal_bias="0.188"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.06" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/btCadastrarICMS"
-<<<<<<< HEAD
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-<<<<<<< HEAD
-<<<<<<< HEAD
-        android:layout_marginTop="72dp"
-        android:text="Cadastrar ICMS"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-=======
-        android:layout_marginTop="80dp"
-        android:text="Cadastrar ICMS"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.561"
->>>>>>> ALAN
-=======
-        android:layout_marginTop="48dp"
-        android:text="Cadastrar ICMS"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.535"
->>>>>>> ALAN
-=======
         android:layout_width="137dp"
         android:layout_height="147dp"
         android:background="@drawable/icms"
@@ -51,7 +29,6 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintHorizontal_bias="0.28"
->>>>>>> ALAN
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline" />
 
@@ -59,19 +36,12 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
-        android:layout_marginTop="76dp"
-        android:text="Cadastrar Pedido"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-=======
         android:text="Cadastrar ICMS"
         android:textColor="#070FCB"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintHorizontal_bias="0.267"
->>>>>>> ALAN
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btCadastrarICMS"
         app:layout_constraintVertical_bias="0.0" />
@@ -93,19 +63,12 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
-        android:layout_marginTop="68dp"
-        android:text="Cadastrar Venda"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-=======
         android:text="Cadastrar Venda"
         android:textColor="#070FCB"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintHorizontal_bias="0.295"
->>>>>>> ALAN
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btCadastrarVenda"
         app:layout_constraintVertical_bias="0.0" />

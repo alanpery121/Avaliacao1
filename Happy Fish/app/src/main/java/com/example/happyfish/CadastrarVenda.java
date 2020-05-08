@@ -18,6 +18,8 @@ public class CadastrarVenda extends AppCompatActivity {
 
     private EditText etVenda;
     private Button btVenda;
+    private String valores;
+    private String nomeCliente;
 
 
     @Override
@@ -30,7 +32,16 @@ public class CadastrarVenda extends AppCompatActivity {
             actionBar.setTitle("Cadastrar Venda");
         }
 
-         final ResourceBundle valores1 = ResourceBundle.getBundle("valores");
+        final Bundle bundle = getIntent().getExtras();
+        // Verifica a nulabilidade do bundle */
+        if (bundle != null){
+            valores = bundle.getString("valores");
+            // Verifica se tem um nome do cliente */
+            if (bundle.getString("NomeCliente") != null){
+                // Recuperando nome do cliente */
+                nomeCliente = bundle.getString("NomeCliente");
+            }
+        }
 
         etVenda = findViewById(R.id.etVenda);
         btVenda = findViewById(R.id.btVenda);
@@ -57,7 +68,12 @@ public class CadastrarVenda extends AppCompatActivity {
                     //define um botão como positivo
                     dialogICMS.setPositiveButton("Salvar", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface arg0, int arg1) {
-                            Toast.makeText(CadastrarVenda.this, "Salvo com sucesso "+"\nFuncionário: " + etVenda.getText().toString()+"\nCliente: "+String.valueOf(valores1), Toast.LENGTH_SHORT).show();
+                            // Verifica se tem algum cliente com pedido */
+                            if (nomeCliente != null){
+                                Toast.makeText(CadastrarVenda.this, "Salvo com sucesso "+"\nFuncionário: " + etVenda.getText().toString()+"\nCliente: "+ nomeCliente , Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(getApplicationContext(), "Cadastre primeiro um pedido", Toast.LENGTH_SHORT).show();
+                            }
                         }
                     });
                     //define um botão como negativo.

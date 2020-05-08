@@ -58,7 +58,7 @@ public class Sobre extends AppCompatActivity {
         btAlan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialogUtil.mostrarDialog(Sobre.this, "Alan Pery", "Analista de sistemas e Desenvolvedor Android junior\nTelefone para contato (88)9-9936-0342", R.drawable.alan);
+                dialogUtil.mostrarDialog(Sobre.this, "Alan Pery", "Analista e desenvolvedor Android junior", R.drawable.alan);
             }
         });
 
@@ -79,9 +79,10 @@ public class Sobre extends AppCompatActivity {
         btVictor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialogUtil.mostrarDialog(Sobre.this, "Victor Emanoel", "Analista de sistemas e futuro engenheiro de software", R.drawable.victor);
+                dialogUtil.mostrarDialog(Sobre.this, "Victor Emanoel", "Analista e especialista em engenharia de software", R.drawable.victor);
             }
         });
+
 
 
 
