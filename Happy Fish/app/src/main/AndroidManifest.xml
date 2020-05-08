@@ -7,10 +7,16 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
+        android:screenOrientation="userPortrait"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <activity android:name=".CadastroPedido"></activity>
+=======
+        <activity android:name=".Sobre"></activity>
+        <activity android:name=".CadastroPedido" />
+>>>>>>> ALAN
         <activity android:name=".CadastrarVenda" />
         <activity android:name=".CadastrarICMS" />
         <activity android:name=".MenuPrincipal" />

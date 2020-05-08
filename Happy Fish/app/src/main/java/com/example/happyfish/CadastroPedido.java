@@ -1,7 +1,10 @@
 package com.example.happyfish;
 
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.TextureView;
@@ -30,6 +33,11 @@ public class CadastroPedido extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_pedido);
+
+        ActionBar actionBar = getSupportActionBar();
+        if(actionBar != null){
+            actionBar.setTitle("Cadastrar Pedido");
+        }
 
         etNomeCliente = findViewById(R.id.etNomeCliente);
         tvPeixe = findViewById(R.id.tvPeixe);
@@ -65,17 +73,42 @@ public class CadastroPedido extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                if((peixeClicado.length() <= 0) || etKgPeixe.getText().toString().isEmpty() || etNomeCliente.getText().toString().isEmpty()){
+                if (etKgPeixe.getText().toString().isEmpty() || etNomeCliente.getText().toString().isEmpty()) {
                     Toast.makeText(CadastroPedido.this, "Preencha todos os campos", Toast.LENGTH_SHORT).show();
-                }else {
-                    Toast.makeText(CadastroPedido.this, "Salvo com sucesso" + "\n" + "Nome do cliente " + etNomeCliente.getText().toString()
-                            + "\n" + etKgPeixe.getText().toString() + "kg" + "\nde peixe " + peixeClicado.toString(), Toast.LENGTH_SHORT).show();
+                } else {
+                    if (peixeClicado != null) {
 
-                    Intent intent1 = new Intent(CadastroPedido.this, CadastrarVenda.class);
-                    intent1.putExtra("nomeFuncionario", etNomeCliente.getText().toString());
+                        //Cria o gerador do AlertDialog
+                        AlertDialog.Builder dialogICMS = new AlertDialog.Builder(CadastroPedido.this);
+                        //define o titulo
+                        dialogICMS.setTitle("Salvar");
+                        //define a mensagem
+                        dialogICMS.setMessage("Deseja realmente salvar?");
+                        //define um botão como positivo
+                        dialogICMS.setPositiveButton("Salvar", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface arg0, int arg1) {
+                                Toast.makeText(CadastroPedido.this, "Salvo com sucesso "+"\n" + "Nome do cliente " + etNomeCliente.getText().toString()
+                                        + "\n" + etKgPeixe.getText().toString() + "kg" + "\nde peixe " + peixeClicado, Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                        //define um botão como negativo.
+                        dialogICMS.setNegativeButton("Sair", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface arg0, int arg1) {
+                                Toast.makeText(CadastroPedido.this, "Operação cancelada", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                        //cria o AlertDialog
+                        dialogICMS.create();
+                        //Exibe
+                        dialogICMS.show();
+                        //Desabilitar o clique fora
+                        dialogICMS.setCancelable(false);
 
 
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Insira o Peixe Desejado!", Toast.LENGTH_SHORT).show();
 
+                    }
                 }
             }
         });
